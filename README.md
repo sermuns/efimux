@@ -8,7 +8,7 @@ _EFI application for booting other EFI applications_
 
 </div>
 
-![demo video](media/demo.avif)
+https://github.com/user-attachments/assets/127dbafc-1784-4dc3-8453-40ebd34ab427
 
 ## Installation and usage
 
