@@ -1,6 +1,6 @@
 <div align="center">
 
-# `efimux`
+![efimux banner](media/banner.svg)
 
 _EFI application for booting other EFI applications_
 
