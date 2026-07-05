@@ -1,0 +1,45 @@
+name: Release
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  publish-github:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # for publishing release
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - shell: bash
+        run: |
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+          echo "PKG_NAME=$(basename $PWD)" >> $GITHUB_ENV
+
+      - shell: bash
+        run: |
+          echo "ARTIFACT_NAME=${{env.PKG_NAME}}-${{env.RELEASE_VERSION}}.efi" >> $GITHUB_ENV
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-unknown-uefi
+
+      - uses: Swatinem/rust-cache@v2
+
+      - run: cargo build --release --locked
+
+      - shell: bash
+        run: |
+          cp target/x86_64-unknown-uefi/release/${{env.PKG_NAME}}.efi ${{env.ARTIFACT_NAME}}
+          shasum -a 512 ${{env.ARTIFACT_NAME}} > ${{env.ARTIFACT_NAME}}.sha512
+
+      - uses: svenstaro/upload-release-action@v2
+        with:
+          file: "${{env.ARTIFACT_NAME}}*"
+          file_glob: true
+          overwrite: true
+          tag: ${{ github.ref }}
+          release_name: v${{ env.RELEASE_VERSION }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
