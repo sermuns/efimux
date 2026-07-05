@@ -2,7 +2,7 @@
 
 ![efimux banner](media/banner.svg)
 
-_EFI application for booting other EFI applications_
+`efimux` is an EFI application for booting other EFI applications. an **efi** **mu**ltiple**x**er, if you will!
 
 [![Built With Ratatui](https://img.shields.io/badge/Built_With_Ratatui-000?logo=ratatui&logoColor=fff)](https://ratatui.rs/)
 
