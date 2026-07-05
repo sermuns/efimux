@@ -299,9 +299,9 @@ dependencies = [
 
 [[package]]
 name = "ratatuefi"
-version = "0.1.0"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4f9aa1d08b8cba33a6b3af06241db529d2ac73be8302b8259c981e0c61bce2a0"
+checksum = "338b0eeeb538ee043f6e853cd916dca1a624c81dc2d77a3ee74bb41976f15545"
 dependencies = [
  "log",
  "ratatui-core",
