@@ -1,12 +1,24 @@
 [package]
 name = "efimux"
 version = "0.1.0"
-edition.workspace = true
+edition = "2024"
+description = "EFI application for booting EFI applications"
+repository = "https://github.com/sermuns/efimux"
+license = "MIT OR Apache-2.0"
+keywords = ["ratatui", "uefi"]
+categories = ["embedded", "no-std"]
 
 [dependencies]
 const_format = "0.2"
-log.workspace = true
-ratatuefi.workspace = true
-ratatui.workspace = true
-uefi.workspace = true
+ratatuefi = "0.1"
+ratatui = { version = "0.30", default-features = false }
+uefi = {
+  version = "0.38",
+  features = [
+    "alloc",
+    "global_allocator",
+    "logger",
+    "panic_handler",
+  ]
+}
 unicode-consts = "0.2"
