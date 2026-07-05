@@ -8,7 +8,12 @@
 
 </div>
 
-https://github.com/user-attachments/assets/127dbafc-1784-4dc3-8453-40ebd34ab427
+
+
+https://github.com/user-attachments/assets/c37e6d62-5e2a-4e62-86b2-3bcd2e930065
+
+
+
 
 ## Installation and usage
 
